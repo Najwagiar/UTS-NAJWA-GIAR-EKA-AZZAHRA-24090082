@@ -1,0 +1,605 @@
+/* ---------------------------------------------------
+   GLOBAL
+--------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --dark-blue: #12001f;      /* background ungu sangat tua */
+  --blue2: #1a0130;          /* sidebar */
+  --blue3: #3b1a5d;          /* border,input */
+  --blue-accent: #b47bff;    /* ungu pastel accent */
+  --text-light: #e9d7ff;     /* teks ungu muda */
+  --white: #ffffff;
+}
+
+/* ---------------------------------------------------
+   LOGIN PAGE
+--------------------------------------------------- */
+.login-bg {
+  background: var(--dark-blue);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-wrapper {
+  display: flex;
+  background: var(--blue2);
+  padding: 30px;
+  border-radius: 12px;
+  width: 900px;
+  gap: 40px;
+  box-shadow: 0 0 25px rgba(180, 123, 255, 0.2);
+}
+
+.login-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-image {
+  width: 100%;
+  max-width: 360px;
+}
+
+.login-right {
+  width: 350px;
+}
+
+.login-title {
+  color: var(--text-light);
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.login-form .input-group {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.input-icon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: #caa7ff;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 13px 40px;
+  border-radius: 8px;
+  border: 1px solid var(--blue3);
+  background: #18002b;
+  color: var(--text-light);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: var(--blue-accent);
+  border: none;
+  color: #000;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.divider {
+  text-align: center;
+  color: #d6c3ff;
+  margin: 15px 0;
+}
+
+.social-row {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #5a277d;
+  background: transparent;
+  border-radius: 8px;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------
+   SIDEBAR
+--------------------------------------------------- */
+.sidebar {
+  width: 70px;
+  height: 100vh;
+  background: var(--blue2);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  box-shadow: 4px 0 20px rgba(180,123,255,0.08);
+}
+
+.side-item {
+  color: #bca1d8;
+  font-size: 22px;
+  padding: 12px;
+}
+
+.side-item.active,
+.side-item:hover {
+  color: var(--blue-accent);
+  background: rgba(180,123,255,0.1);
+  border-radius: 12px;
+}
+
+/* Logout button */
+.logout-btn {
+  margin-top: auto;
+  padding: 12px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  color: #ff7b7b;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------
+   MAIN CONTENT
+--------------------------------------------------- */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  color: var(--text-light);
+  background: var(--dark-blue);
+}
+
+.page-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: var(--blue-accent);
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------
+   DASHBOARD CARDS
+--------------------------------------------------- */
+.card-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #18002b;
+  padding: 25px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  color: var(--text-light);
+  border: 1px solid rgba(180,123,255,0.3);
+  box-shadow: 0 0 10px rgba(180,123,255,0.1);
+}
+
+.card-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: var(--blue-accent);
+}
+
+body.app-bg {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background: var(--dark-blue);
+}
+
+.sidebar {
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* ---------------------------------------------------
+   PRODUCT TABLE
+--------------------------------------------------- */
+.table-card {
+  background: #18002b;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(180,123,255,0.3);
+  box-shadow: 0 0 10px rgba(180,123,255,0.15);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text-light);
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #3a2457;
+}
+
+td button {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--blue-accent);
+}
+
+/* ---------------------------------------------------
+   HOVER EFFECTS
+--------------------------------------------------- */
+* {
+  transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: #d9bdff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(180,123,255,0.4);
+}
+
+.social-btn:hover {
+  border-color: var(--blue-accent);
+  color: var(--blue-accent);
+  transform: translateY(-2px);
+}
+
+.input-group input:hover {
+  border-color: var(--blue-accent);
+}
+
+.input-group input:focus {
+  border-color: var(--blue-accent);
+  box-shadow: 0 0 0 3px rgba(180,123,255,0.3);
+}
+
+.side-item:hover {
+  transform: translateY(-2px) scale(1.12);
+}
+
+.logout-btn:hover {
+  transform: scale(1.1);
+  color: #ff9c9c;
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0px 6px 18px rgba(180,123,255,0.25);
+}
+
+.table-card table tbody tr:hover {
+  background: rgba(180,123,255,0.1);
+  transform: scale(1.01);
+}
+
+td button:hover {
+  transform: scale(1.3);
+  color: #d9bdff;
+}
+
+/* ---------------------------------------------------
+   EDIT PRODUCT MODAL
+--------------------------------------------------- */
+
+.modal {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* penting! modal harus muncul di atas */
+}
+
+.modal-content {
+  background: #18002b;
+  padding: 25px;
+  width: 350px;
+  border-radius: 12px;
+  border: 1px solid rgba(180,123,255,0.4);
+  box-shadow: 0 0 15px rgba(180,123,255,0.3);
+  color: #e9d7ff;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: #b47bff;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 12px;
+  border-radius: 8px;
+  border: 1px solid #3b1a5d;
+  background: #240042;
+  color: #e9d7ff;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-cancel {
+  padding: 10px 18px;
+  background: #5a277d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background: #7430a1;
+}
+/* FORGOT + SIGN UP */
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.login-links a {
+  color: var(--blue-accent);
+  text-decoration: none;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+/* SOCIAL LOGIN */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--blue-accent);
+  background: transparent;
+  color: var(--blue-accent);
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-btn:hover {
+  background: rgba(180,123,255,0.2);
+}
+
+.social-btn.google i { color: #ffffff; }
+.social-btn.facebook i { color: #ffffff; }
+
+/* DIVIDER */
+.divider {
+  width: 100%;
+  text-align: center;
+  margin: 18px 0;
+  position: relative;
+}
+
+.divider span {
+  background: var(--blue2);
+  padding: 0 10px;
+  color: #d6c3ff;
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #3b1a5d;
+}
+
+.divider::before { left: 0; }
+.divider::after  { right: 0; }
+
+/* ---------------------------------------------------
+   EDIT PRODUCT MODAL
+--------------------------------------------------- */
+
+.modal {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* penting! modal harus muncul di atas */
+}
+
+.modal-content {
+  background: #18002b;
+  padding: 25px;
+  width: 350px;
+  border-radius: 12px;
+  border: 1px solid rgba(180,123,255,0.4);
+  box-shadow: 0 0 15px rgba(180,123,255,0.3);
+  color: #e9d7ff;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: #b47bff;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 12px;
+  border-radius: 8px;
+  border: 1px solid #3b1a5d;
+  background: #240042;
+  color: #e9d7ff;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-cancel {
+  padding: 10px 18px;
+  background: #5a277d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-cancel:hover {
+  background: #7430a1;
+}
+
+
+
+/* BUTTON TAMBAH PRODUCT */
+.add-btn {
+  background: #2d59ff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  transition: 0.2s;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.add-btn:hover {
+  background: #727fb2;
+  transform: translateY(-2px);
+}
+
+/* POPUP ADD PRODUCT */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.2s ease;
+}
+
+/* CARD DI DALAM POPUP */
+.popup-card {
+  width: 340px;
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.20);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: slideUp 0.25s ease;
+}
+
+/* JUDUL FORM */
+.popup-card h2 {
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2d59ff;
+}
+
+/* INPUT */
+.popup-card input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1.5px solid #d3d3d3;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.popup-card input:focus {
+  border-color: #2d59ff;
+  box-shadow: 0 0 8px rgba(45, 89, 255, 0.3);
+}
+
+/* SAVE BUTTON */
+.save-btn {
+  background: #2d59ff;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.save-btn:hover {
+  background: #5e74e0;
+}
+
+/* CANCEL */
+.cancel-btn {
+  background: #d6d6d6;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.cancel-btn:hover {
+  background: #bcbcbc;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; } 
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
